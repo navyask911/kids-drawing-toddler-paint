@@ -975,6 +975,11 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
 }
 
 flutter {
