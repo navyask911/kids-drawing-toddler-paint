@@ -42,14 +42,4 @@ The complete mobile source code generated from AI Studio is structured as:
 
 ---
 
-## 🚀 Local Build & Release Instructions
 
-### 1. Configure Keystore Credentials
-1. Copy `android/key.properties.example` to `android/key.properties`.
-2. Place your release keystore file (`.jks`) inside `android/app/`.
-3. Fill in your credentials:
-   ```properties
-   storePassword=YOUR_KEYSTORE_PASSWORD
-   keyPassword=YOUR_KEY_PASSWORD
-   keyAlias=upload
-   storeFile=../app/upload-keystore.jks
