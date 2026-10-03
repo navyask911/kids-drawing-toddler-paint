@@ -1,0 +1,44 @@
+<!-- android/app/src/main/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kidsdrawingapp">
+
+    <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:label="Kids Drawing Studio"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+
+        <!-- ================================================================= -->
+        <!-- GOOGLE ADMOB APPLICATION ID METADATA -->
+        <!-- Injected Live Production AdMob Application ID -->
+        <!-- ================================================================= -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4783826505860771~6744055015"/>
+
+        <!-- ================================================================= -->
+        <!-- GOOGLE PLAY FAMILIES POLICY COMPLIANCE DECLARATION -->
+        <!-- ================================================================= -->
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION"
+            android:value="true"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>

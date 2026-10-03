@@ -923,17 +923,23 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            storePassword keystoreProperties['storePassword']
+            if (keystoreProperties['storeFile'] != null) {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
         }
     }
 
     buildTypes {
         release {
-            // Wire release signature from key.properties
-            signingConfig signingConfigs.release
+            // Apply release signature if key.properties is provided; fallback to debug signing in CI/test environments
+            if (keystoreProperties['storeFile'] != null) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
 
             // Enable R8 code shrinking, obfuscation, and resource optimization
             minifyEnabled true

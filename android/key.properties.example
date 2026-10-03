@@ -1,0 +1,11 @@
+# android/key.properties.example
+# ==============================================================================
+# ANDROID RELEASE SIGNING CREDENTIALS TEMPLATE
+# Copy this file to android/key.properties and set your keystore values.
+# NEVER commit key.properties to git (already excluded in .gitignore).
+# ==============================================================================
+
+storePassword=YOUR_KEYSTORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=/path/to/upload-keystore.jks
