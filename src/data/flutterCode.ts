@@ -841,7 +841,7 @@ export function generatePubspecYaml(): string {
 name: kids_drawing_toddler_paint
 description: "Child-Safe Kids Drawing Studio with AdMob COPPA & Families Policy"
 publish_to: "none"
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -903,8 +903,8 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
-def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0'
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '2'
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.1'
 
 // -----------------------------------------------------------------------------
 // 1. SECURE KEYSTORE SIGNATURE LOADING
