@@ -37,5 +37,6 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/icon/
+  # Assets can be enabled when asset files are added to the directory:
+  # assets:
+  #   - assets/icon/

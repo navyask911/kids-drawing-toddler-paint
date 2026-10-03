@@ -838,7 +838,7 @@ export function generateAndroidManifestXml(appId: string): string {
 
 export function generatePubspecYaml(): string {
   return `# pubspec.yaml
-name: kids_drawing_app
+name: kids_drawing_toddler_paint
 description: "Child-Safe Kids Drawing Studio with AdMob COPPA & Families Policy"
 publish_to: "none"
 version: 1.0.0+1
@@ -877,8 +877,9 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/icon/
+  # Assets can be enabled when asset files are added:
+  # assets:
+  #   - assets/icon/
 `;
 }
 
@@ -919,7 +920,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.navya.kids_drawing_toddler_paint"
-    compileSdkVersion 34
+    compileSdk = 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -939,7 +940,7 @@ android {
         applicationId "com.navya.kids_drawing_toddler_paint"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
