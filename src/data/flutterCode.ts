@@ -885,8 +885,14 @@ flutter:
 export function generateBuildGradle(): string {
   return `// android/app/build.gradle
 // -----------------------------------------------------------------------------
-// Production Release Build & Keystore Signature Wiring
+// Production Release Build & Keystore Signature Wiring (Declarative Gradle DSL)
 // -----------------------------------------------------------------------------
+
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
@@ -910,10 +916,6 @@ if (keystorePropertiesFile.exists()) {
         keystoreProperties.load(reader)
     }
 }
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.example.kids_drawing_toddler_paint"
