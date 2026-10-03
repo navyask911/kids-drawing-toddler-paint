@@ -768,7 +768,7 @@ class CanvasPainter extends CustomPainter {
 }
 
 export function generateMainActivityKt(): string {
-  return `package com.example.kids_drawing_toddler_paint
+  return `package com.navya.kids_drawing_toddler_paint
 
 import io.flutter.embedding.android.FlutterActivity
 
@@ -780,7 +780,7 @@ class MainActivity: FlutterActivity() {
 export function generateAndroidManifestXml(appId: string): string {
   return `<!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kids_drawing_toddler_paint">
+    package="com.navya.kids_drawing_toddler_paint">
 
     <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -918,7 +918,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.kids_drawing_toddler_paint"
+    namespace "com.navya.kids_drawing_toddler_paint"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -936,7 +936,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.kids_drawing_toddler_paint"
+        applicationId "com.navya.kids_drawing_toddler_paint"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
         targetSdkVersion 34
