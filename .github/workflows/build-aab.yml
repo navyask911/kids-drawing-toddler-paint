@@ -30,17 +30,14 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Generate Release Keystore and key.properties
+      - name: Configure Release Keystore from Repository Secrets
         run: |
-          keytool -genkey -v -keystore android/app/upload-keystore.jks \
-            -storepass releasepassword123 -keypass releasepassword123 \
-            -alias upload -keyalg RSA -keysize 2048 -validity 10000 \
-            -dname "CN=KidsDrawing, OU=Mobile, O=KidsDrawing, L=Bengaluru, S=Karnataka, C=IN"
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/upload-keystore.jks
           
           cat <<EOF > android/key.properties
-          storePassword=releasepassword123
-          keyPassword=releasepassword123
-          keyAlias=upload
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
           storeFile=upload-keystore.jks
           EOF
 
