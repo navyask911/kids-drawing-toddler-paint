@@ -30,6 +30,20 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate Release Keystore and key.properties
+        run: |
+          keytool -genkey -v -keystore android/app/upload-keystore.jks \
+            -storepass releasepassword123 -keypass releasepassword123 \
+            -alias upload -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=KidsDrawing, OU=Mobile, O=KidsDrawing, L=Bengaluru, S=Karnataka, C=IN"
+          
+          cat <<EOF > android/key.properties
+          storePassword=releasepassword123
+          keyPassword=releasepassword123
+          keyAlias=upload
+          storeFile=upload-keystore.jks
+          EOF
+
       - name: Build Android App Bundle (AAB) & APK
         run: |
           flutter build appbundle --release --android-skip-build-dependency-validation
