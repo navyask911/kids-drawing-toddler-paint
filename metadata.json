@@ -1,0 +1,6 @@
+{
+  "name": "Flutter Kids Drawing App - COPPA & Families AdMob Hub",
+  "description": "Google Play Families Policy and COPPA-compliant Google Mobile Ads (AdMob) Flutter architecture, singleton AdHelper, parental gate, and interactive simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

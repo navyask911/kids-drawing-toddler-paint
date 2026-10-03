@@ -1,0 +1,6 @@
+{
+  "summary":  "Architectural and implementation plan for integrating Google Mobile Ads (AdMob) with strict Google Play Families Policy and COPPA compliance into a Flutter kids drawing app. Details the AdHelper singleton, COPPA/GDPR G-rated RequestConfiguration, NPA ad requests, bottom-anchored child-safe banner buffer, interactive arithmetic parental gate, active drawing stroke guard against intrusive interstitials, and complete exportable Flutter source files (ad_helper.dart, main.dart, AndroidManifest.xml).",
+  "updatedAt":  "2026-10-03T03:34:00.876223339Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
