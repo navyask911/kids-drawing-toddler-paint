@@ -1,19 +1,25 @@
 <!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kidsdrawingapp">
+    package="com.example.kids_drawing_toddler_paint">
 
     <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:label="Kids Drawing Studio"
+        android:label="Kids Drawing: Toddler Paint"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
         <!-- ================================================================= -->
+        <!-- FLUTTER V2 EMBEDDING DECLARATION (Modern Flutter Architecture) -->
+        <!-- ================================================================= -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+        <!-- ================================================================= -->
         <!-- GOOGLE ADMOB APPLICATION ID METADATA -->
-        <!-- Injected Live Production AdMob Application ID -->
         <!-- ================================================================= -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -34,6 +40,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started for Flutter v2 embedding. -->
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

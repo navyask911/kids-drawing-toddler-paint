@@ -5,7 +5,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:kids_drawing_app/ad_helper.dart';
+import 'package:kids_drawing_toddler_paint/ad_helper.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

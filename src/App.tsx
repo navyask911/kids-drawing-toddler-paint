@@ -34,7 +34,8 @@ import {
   generateProguardRules,
   generateKeyPropertiesExample,
   generateGitignore,
-  generateAdMobUnitTestDart
+  generateAdMobUnitTestDart,
+  generateMainActivityKt
 } from './data/flutterCode';
 
 export default function App() {
@@ -142,6 +143,7 @@ export default function App() {
     const files = [
       { name: 'ad_helper.dart', content: generateAdHelperDart(config, isUsingTestIds) },
       { name: 'main.dart', content: generateMainDart() },
+      { name: 'MainActivity.kt', content: generateMainActivityKt() },
       { name: 'AndroidManifest.xml', content: generateAndroidManifestXml(config.androidAppId) },
       { name: 'build.gradle', content: generateBuildGradle() },
       { name: 'proguard-rules.pro', content: generateProguardRules() },
@@ -164,8 +166,8 @@ export default function App() {
       }, index * 150);
     });
 
-    addLog('Exported all 10 Flutter production release deliverables (Dart, Gradle, Proguard, Keystore template, Tests).', 'success');
-    showToast('📦 Exported 10 production release files successfully!');
+    addLog('Exported all 11 Flutter production release deliverables (v2 embedding, Dart, Gradle, Proguard, Keystore template, Tests).', 'success');
+    showToast('📦 Exported 11 production release files successfully!');
   };
 
   return (

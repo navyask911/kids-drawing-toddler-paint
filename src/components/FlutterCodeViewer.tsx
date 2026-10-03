@@ -22,7 +22,8 @@ import {
   generateProguardRules,
   generateKeyPropertiesExample,
   generateGitignore,
-  generateAdMobUnitTestDart
+  generateAdMobUnitTestDart,
+  generateMainActivityKt
 } from '../data/flutterCode';
 
 interface FlutterCodeViewerProps {
@@ -35,6 +36,7 @@ interface FlutterCodeViewerProps {
 type TabType = 
   | 'ad_helper' 
   | 'main' 
+  | 'main_activity'
   | 'manifest' 
   | 'gradle' 
   | 'proguard' 
@@ -56,6 +58,7 @@ export const FlutterCodeViewer: React.FC<FlutterCodeViewerProps> = ({
 
   const adHelperCode = generateAdHelperDart(config, isUsingTestIds);
   const mainDartCode = generateMainDart();
+  const mainActivityKtCode = generateMainActivityKt();
   const manifestXmlCode = generateAndroidManifestXml(config.androidAppId);
   const pubspecYamlCode = generatePubspecYaml();
   const checklistMdCode = generateCOPPAComplianceChecklist();
@@ -69,6 +72,7 @@ export const FlutterCodeViewer: React.FC<FlutterCodeViewerProps> = ({
     switch (activeTab) {
       case 'ad_helper': return { code: adHelperCode, filename: 'ad_helper.dart', language: 'dart' };
       case 'main': return { code: mainDartCode, filename: 'main.dart', language: 'dart' };
+      case 'main_activity': return { code: mainActivityKtCode, filename: 'MainActivity.kt', language: 'kotlin' };
       case 'manifest': return { code: manifestXmlCode, filename: 'AndroidManifest.xml', language: 'xml' };
       case 'gradle': return { code: buildGradleCode, filename: 'build.gradle', language: 'groovy' };
       case 'proguard': return { code: proguardCode, filename: 'proguard-rules.pro', language: 'proguard' };
@@ -267,6 +271,19 @@ export const FlutterCodeViewer: React.FC<FlutterCodeViewerProps> = ({
         >
           <FileCode className="w-4 h-4" />
           <span>main.dart (Canvas & Banner UI)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('main_activity')}
+          className={`px-4 py-3 text-xs font-semibold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
+            activeTab === 'main_activity'
+              ? 'border-blue-500 text-blue-400 bg-slate-900/60'
+              : 'border-transparent text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          <FileCode className="w-4 h-4 text-purple-400" />
+          <span>MainActivity.kt (v2 Embedding)</span>
+          <span className="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.2 rounded font-mono">v2</span>
         </button>
 
         <button

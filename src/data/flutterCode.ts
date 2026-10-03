@@ -767,19 +767,36 @@ class CanvasPainter extends CustomPainter {
 `;
 }
 
+export function generateMainActivityKt(): string {
+  return `package com.example.kids_drawing_toddler_paint
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
+`;
+}
+
 export function generateAndroidManifestXml(appId: string): string {
   return `<!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kidsdrawingapp">
+    package="com.example.kids_drawing_toddler_paint">
 
     <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:label="Kids Drawing Studio"
+        android:label="Kids Drawing: Toddler Paint"
         android:name="\${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- ================================================================= -->
+        <!-- FLUTTER V2 EMBEDDING DECLARATION -->
+        <!-- ================================================================= -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
 
         <!-- ================================================================= -->
         <!-- GOOGLE ADMOB APPLICATION ID METADATA -->
@@ -792,8 +809,6 @@ export function generateAndroidManifestXml(appId: string): string {
 
         <!-- ================================================================= -->
         <!-- GOOGLE PLAY FAMILIES POLICY COMPLIANCE DECLARATION -->
-        <!-- Apps in the Designed for Families program must disable Ad ID -->
-        <!-- transmission if target audience includes children under 13. -->
         <!-- ================================================================= -->
         <meta-data
             android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION"
@@ -807,6 +822,9 @@ export function generateAndroidManifestXml(appId: string): string {
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -898,7 +916,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.example.kidsdrawingapp"
+    namespace "com.example.kids_drawing_toddler_paint"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -911,8 +929,12 @@ android {
         jvmTarget = '1.8'
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     defaultConfig {
-        applicationId "com.example.kidsdrawingapp"
+        applicationId "com.example.kids_drawing_toddler_paint"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
         targetSdkVersion 34

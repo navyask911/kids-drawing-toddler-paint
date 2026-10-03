@@ -31,7 +31,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.example.kidsdrawingapp"
+    namespace "com.example.kids_drawing_toddler_paint"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -44,8 +44,12 @@ android {
         jvmTarget = '1.8'
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     defaultConfig {
-        applicationId "com.example.kidsdrawingapp"
+        applicationId "com.example.kids_drawing_toddler_paint"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
         targetSdkVersion 34
