@@ -1,4 +1,4 @@
-package com.navya.kids_drawing_toddler_paint
+package com.navya.kids_drawing_studio
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -768,7 +768,7 @@ class CanvasPainter extends CustomPainter {
 }
 
 export function generateMainActivityKt(): string {
-  return `package com.navya.kids_drawing_toddler_paint
+  return `package com.navya.kids_drawing_studio
 
 import io.flutter.embedding.android.FlutterActivity
 
@@ -780,7 +780,7 @@ class MainActivity: FlutterActivity() {
 export function generateAndroidManifestXml(appId: string): string {
   return `<!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.navya.kids_drawing_toddler_paint">
+    package="com.navya.kids_drawing_studio">
 
     <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -841,7 +841,7 @@ export function generatePubspecYaml(): string {
 name: kids_drawing_toddler_paint
 description: "Child-Safe Kids Drawing Studio with AdMob COPPA & Families Policy"
 publish_to: "none"
-version: 1.0.1+2
+version: 1.0.0+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -903,8 +903,8 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '2'
-def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.1'
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.0'
 
 // -----------------------------------------------------------------------------
 // 1. SECURE KEYSTORE SIGNATURE LOADING
@@ -919,17 +919,17 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.navya.kids_drawing_toddler_paint"
+    namespace "com.navya.kids_drawing_studio"
     compileSdk = 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -937,7 +937,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.navya.kids_drawing_toddler_paint"
+        applicationId "com.navya.kids_drawing_studio"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
         targetSdkVersion 36

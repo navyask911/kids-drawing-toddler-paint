@@ -12,8 +12,8 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def flutterVersionCode = localProperties.getProperty("flutter.versionCode") ?: "2"
-def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "1.0.1"
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode") ?: "1"
+def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "1.0.0"
 
 // -----------------------------------------------------------------------------
 // 1. SECURE KEYSTORE SIGNATURE LOADING
@@ -28,17 +28,17 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.navya.kids_drawing_toddler_paint"
+    namespace "com.navya.kids_drawing_studio"
     compileSdk = 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
     sourceSets {
@@ -46,7 +46,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.navya.kids_drawing_toddler_paint"
+        applicationId "com.navya.kids_drawing_studio"
         // Google Mobile Ads SDK requirement: minSdkVersion 21 or higher
         minSdkVersion 21
         targetSdkVersion 36

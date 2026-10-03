@@ -1,6 +1,6 @@
 <!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.navya.kids_drawing_toddler_paint">
+    package="com.navya.kids_drawing_studio">
 
     <!-- Essential Internet & Network Permissions for Google Mobile Ads -->
     <uses-permission android:name="android.permission.INTERNET"/>
