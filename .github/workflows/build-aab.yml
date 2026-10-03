@@ -1,4 +1,4 @@
-name: Build Android App Bundle (AAB)
+name: Build Android App Bundle (AAB) & APK
 
 on:
   push:
@@ -30,11 +30,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Android App Bundle (AAB)
-        run: flutter build appbundle --release --android-skip-build-dependency-validation
+      - name: Build Android App Bundle (AAB) & APK
+        run: |
+          flutter build appbundle --release --android-skip-build-dependency-validation
+          flutter build apk --release --android-skip-build-dependency-validation
 
-      - name: Upload AAB Artifact
+      - name: Upload Release Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: release-aab
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: release-builds
+          path: |
+            build/app/outputs/bundle/release/*.aab
+            build/app/outputs/flutter-apk/*.apk

@@ -1020,6 +1020,12 @@ export function generateProguardRules(): string {
 -keep class io.flutter.view.**  { *; }
 -keep class io.flutter.** { *; }
 -keep class io.flutter.plugins.**  { *; }
+
+# 6. Play Core deferred components and reflection preservation
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }
+-dontwarn io.flutter.embedding.engine.deferredcomponents.**
+-keep class io.flutter.embedding.engine.deferredcomponents.** { *; }
 `;
 }
 
